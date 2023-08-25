@@ -22,11 +22,12 @@ pipenv install
    export HYPOTHESIS_API_KEY={YOUR_KEY}
    ```
 
-3. Run the specific batch tool you want to use.
+3. Run the specific batch tool you want using `pipenv run <tool>`. See
+   the `[scripts]` section of `Pipfile` for a list of available scripts.
 
 ### Bulk annotation delete
 
-Delete all annotations on `URL` in `GROUP_ID`
+Delete all annotations on `URL` in `GROUP_ID`.
 
 ```sh
 pipenv run bulk_delete URL GROUP_ID --endpoint https://hypothes.is/api
