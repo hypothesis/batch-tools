@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+qa = "sh -c 'pipenv run checkformat && pipenv run typecheck && pipenv run lint'"
+checkformat = "black --check ."
+lint = "flake8 --ignore E501"
+format = "black ."
+bulk_delete = "python -m batch_tools.bulk_delete"
+
