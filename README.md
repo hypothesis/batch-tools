@@ -16,10 +16,10 @@ pipenv install
 1. Generate a developer token at https://hypothes.is/account/developer, or otherwise
    obtain a Hypothesis access token.
 
-2. Set the `HYPOTHESIS_API_KEY` env var to the access token
+2. Set the `HYPOTHESIS_ACCESS_TOKEN` env var to the access token
 
    ```sh
-   export HYPOTHESIS_API_KEY={YOUR_KEY}
+   export HYPOTHESIS_ACCESS_TOKEN={YOUR_TOKEN}
    ```
 
 3. Run the specific batch tool you want using `pipenv run <tool>`. See

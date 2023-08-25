@@ -6,13 +6,13 @@ class HypothesisClient:
     Hypothesis API client.
     """
 
-    def __init__(self, endpoint: str, api_key: str):
+    def __init__(self, endpoint: str, access_token: str):
         """
         :param endpoint: Hypothesis API endpoint
         :param api_key: Hypothesis API token
         """
         self.endpoint = endpoint
-        self.api_key = api_key
+        self.access_token = access_token
 
     def search(self, **query):
         """Search for annotations."""
@@ -25,7 +25,7 @@ class HypothesisClient:
         while True:
             rsp = requests.get(
                 f"{self.endpoint}/search",
-                headers={"Authorization": f"Bearer {self.api_key}"},
+                headers={"Authorization": f"Bearer {self.access_token}"},
                 params={
                     # General search args
                     "search_after": search_after,
@@ -62,6 +62,6 @@ class HypothesisClient:
             print(f"Deleting annotation {id_} ({idx+1} of {len(ids)})")
             delete_rsp = requests.delete(
                 f"{self.endpoint}/annotations/{id_}",
-                headers={"Authorization": f"Bearer {self.api_key}"},
+                headers={"Authorization": f"Bearer {self.access_token}"},
             )
             delete_rsp.raise_for_status()

@@ -12,12 +12,12 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-api_key = os.getenv("HYPOTHESIS_API_KEY")
-if api_key is None:
-    print("HYPOTHESIS_API_KEY env var not set", file=sys.stderr)
+access_token = os.getenv("HYPOTHESIS_ACCESS_TOKEN")
+if access_token is None:
+    print("HYPOTHESIS_ACCESS_TOKEN env var not set", file=sys.stderr)
     sys.exit(1)
 
-client = HypothesisClient(args.endpoint, api_key)
+client = HypothesisClient(args.endpoint, access_token)
 
 anns = client.search(url=args.url, group=args.group)
 ids = [ann["id"] for ann in anns]
